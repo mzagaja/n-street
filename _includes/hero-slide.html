@@ -6,15 +6,15 @@
   <div class="slide-image-container">
     <picture>
       <source
-        srcset="/assets/images/optimized/{{ include.slide.id }}-mobile.webp"
+        srcset="./assets/images/optimized/{{ include.slide.id }}-mobile.webp"
         media="(max-width: 640px)"
         type="image/webp">
       <source
-        srcset="/assets/images/optimized/{{ include.slide.id }}-desktop.webp"
+        srcset="./assets/images/optimized/{{ include.slide.id }}-desktop.webp"
         media="(min-width: 641px)"
         type="image/webp">
       <img
-        src="/assets/images/hero/{{ include.slide.image }}"
+        src="./assets/images/hero/{{ include.slide.image }}"
         alt="{{ include.slide.image_alt }}"
         class="slide-image"
         loading="{% if include.index == 0 %}eager{% else %}lazy{% endif %}">
