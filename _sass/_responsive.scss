@@ -16,7 +16,7 @@
 .hero-slide {
   @media (max-width: $breakpoint-md) {
     .slide-content {
-      padding: $spacing-lg 0;
+      padding: 8rem $spacing-md $spacing-lg;
 
       .slide-headline {
         font-size: 2rem;
