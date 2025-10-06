@@ -1,0 +1,63 @@
+<section
+  class="hero-slide {{ include.slide.color_scheme }}"
+  id="{{ include.slide.id }}"
+  data-slide-index="{{ include.index }}">
+
+  <div class="slide-image-container">
+    <picture>
+      <source
+        srcset="/assets/images/optimized/{{ include.slide.id }}-mobile.webp"
+        media="(max-width: 640px)"
+        type="image/webp">
+      <source
+        srcset="/assets/images/optimized/{{ include.slide.id }}-desktop.webp"
+        media="(min-width: 641px)"
+        type="image/webp">
+      <img
+        src="/assets/images/hero/{{ include.slide.image }}"
+        alt="{{ include.slide.image_alt }}"
+        class="slide-image"
+        loading="{% if include.index == 0 %}eager{% else %}lazy{% endif %}">
+    </picture>
+    <div class="slide-overlay"></div>
+  </div>
+
+  <div class="slide-content">
+    <div class="container">
+      <h1 class="slide-headline" data-aos="fade-up">
+        {{ include.slide.headline }}
+      </h1>
+
+      {% if include.slide.subhead %}
+      <p class="slide-subhead" data-aos="fade-up" data-aos-delay="100">
+        {{ include.slide.subhead }}
+      </p>
+      {% endif %}
+
+      <ul class="slide-features" data-aos="fade-up" data-aos-delay="200">
+        {% for feature in include.slide.features %}
+        <li>{{ feature }}</li>
+        {% endfor %}
+      </ul>
+
+      {% if include.index == 5 %}
+      <div class="cta-group" data-aos="fade-up" data-aos-delay="300">
+        <button class="btn-primary" onclick="openLeadForm()">
+          Schedule Private Showing
+        </button>
+        <a href="tel:{{ site.realtor.phone }}" class="btn-secondary">
+          Call {{ site.realtor.phone }}
+        </a>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+
+  {% unless include.index == 5 %}
+  <button class="scroll-indicator" aria-label="Scroll to next section">
+    <svg width="24" height="24" viewBox="0 0 24 24">
+      <path d="M12 16l-6-6h12z" fill="currentColor"/>
+    </svg>
+  </button>
+  {% endunless %}
+</section>

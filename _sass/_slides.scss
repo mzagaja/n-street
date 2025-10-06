@@ -1,0 +1,126 @@
+.hero-slide {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  .slide-image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+
+    .slide-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .slide-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  .slide-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: $white;
+    padding: $spacing-xl 0;
+
+    .slide-headline {
+      margin-bottom: $spacing-md;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -1px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .slide-subhead {
+      font-size: $font-size-body-lg;
+      margin-bottom: $spacing-lg;
+      opacity: 0.9;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    .slide-features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: $spacing-md;
+      margin-bottom: $spacing-lg;
+
+      li {
+        position: relative;
+        padding-left: 1.5rem;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+
+        &:before {
+          content: "✓";
+          position: absolute;
+          left: 0;
+          color: $copper;
+          font-weight: bold;
+          text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+      }
+    }
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: $white;
+    animation: bounce 2s infinite;
+    z-index: 3;
+
+    svg {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  // Color scheme variations
+  @each $name, $scheme in $color-schemes {
+    &.#{$name} {
+      @if type-of(map-get($scheme, 'bg')) == 'color' {
+        background-color: map-get($scheme, 'bg');
+      } @else {
+        background: map-get($scheme, 'bg');
+      }
+
+      .slide-content {
+        color: map-get($scheme, 'text');
+      }
+
+      .slide-features li:before {
+        color: map-get($scheme, 'accent');
+      }
+    }
+  }
+}
+
+.cta-group {
+  display: flex;
+  gap: $spacing-md;
+  justify-content: center;
+  margin-top: $spacing-lg;
+
+  @media (max-width: $breakpoint-sm) {
+    flex-direction: column;
+  }
+}

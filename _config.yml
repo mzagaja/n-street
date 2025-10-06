@@ -1,0 +1,36 @@
+title: "Modern South Boston Luxury Condo"
+description: "2BR/2BA luxury condo in South Boston. Walking distance to Seaport. Smart home ready."
+url: "https://yourdomain.com"
+baseurl: ""
+
+# Property Details
+property:
+  address: "116 N St Unit 1, South Boston, MA 02127"
+  price: "$799,000"
+  beds: 2
+  baths: 2
+  sqft: "1150"
+  hoa: "$450/month"
+
+# Meta Pixel
+meta_pixel_id: "YOUR_PIXEL_ID_HERE"
+
+# Contact
+realtor:
+  name: "Jessica Witter-Aladesanmi"
+  phone: "508-776-6636"
+  email: "jessica.witter@compass.com"
+
+# Build settings
+markdown: kramdown
+sass:
+  sass_dir: _sass
+  style: compressed
+
+plugins:
+  - jekyll-seo-tag
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md

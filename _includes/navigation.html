@@ -1,0 +1,24 @@
+<nav class="navigation" aria-label="Main navigation">
+  <div class="nav-container">
+    <div class="nav-property">
+      <span class="nav-address">{{ site.property.address }}</span>
+      <span class="nav-price">{{ site.property.price }}</span>
+    </div>
+
+    <div class="nav-dots" role="tablist">
+      {% for slide in site.data.slides %}
+        <button
+          class="nav-dot {% if forloop.first %}active{% endif %}"
+          data-slide="{{ forloop.index0 }}"
+          role="tab"
+          aria-label="Go to {{ slide.headline | truncate: 30 }}"
+          aria-selected="{% if forloop.first %}true{% else %}false{% endif %}">
+        </button>
+      {% endfor %}
+    </div>
+
+    <button class="nav-cta" onclick="openLeadForm()">
+      Schedule Showing
+    </button>
+  </div>
+</nav>

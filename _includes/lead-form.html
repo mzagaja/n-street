@@ -1,0 +1,55 @@
+<div id="lead-modal" class="modal" role="dialog" aria-labelledby="modal-title">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeLeadForm()" aria-label="Close">
+      <span>&times;</span>
+    </button>
+
+    <h2 id="modal-title">Schedule Your Private Showing</h2>
+    <p class="modal-subtitle">{{ site.property.address }}</p>
+
+    <form id="lead-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <div class="form-group">
+        <label for="name">Full Name *</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone *</label>
+        <input type="tel" id="phone" name="phone" required>
+      </div>
+
+      <div class="form-group">
+        <label for="preferred-time">Preferred Showing Time</label>
+        <select id="preferred-time" name="preferred_time">
+          <option value="">Select a time</option>
+          <option value="weekday-morning">Weekday Morning</option>
+          <option value="weekday-afternoon">Weekday Afternoon</option>
+          <option value="weekday-evening">Weekday Evening</option>
+          <option value="weekend-morning">Weekend Morning</option>
+          <option value="weekend-afternoon">Weekend Afternoon</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="pre-approved">
+          <input type="checkbox" id="pre-approved" name="pre_approved">
+          I am pre-approved for financing
+        </label>
+      </div>
+
+      <button type="submit" class="btn-primary full-width">
+        Request Showing
+      </button>
+
+      <p class="form-disclaimer">
+        By submitting, you agree to be contacted about this property.
+        Serious inquiries only. Proof of funds required for showing.
+      </p>
+    </form>
+  </div>
+</div>

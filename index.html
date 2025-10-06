@@ -1,0 +1,9 @@
+---
+layout: default
+---
+
+{% for slide in site.data.slides %}
+  {% include hero-slide.html slide=slide index=forloop.index0 %}
+{% endfor %}
+
+{% include lead-form.html %}
